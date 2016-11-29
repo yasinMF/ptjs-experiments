@@ -1,4 +1,4 @@
-var space, form;
+ var space, form;
 
 var theme = {
   background: '#EBEBEB',

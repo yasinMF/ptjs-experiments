@@ -1,13 +1,39 @@
 @import 'base/variables';
 
 @import 'base/normalize';
-@import 'base/global';
+@import 'base/global'; 
 
-// Import Components
-// @import 'components/header';
+// Global CSS goes here
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
 
-// Import Layouts
-// @import 'layouts/home';
 
-// Import Plugins
-// @import 'plugins/plugin';
+body{
+	background: black;
+}
+
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
+}
+
+.vertical-center{
+	background-color: #000;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	transform: translate3d(0px, -50%, 0px)
+}
